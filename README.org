@@ -1,2 +1,3 @@
 * My Minimal Emacs Config
   -Note that the config.org and readme are the same !
+  -Learn more about Org mode !
