@@ -39,6 +39,11 @@
    #+BEGIN_SRC emacs-lisp
      (show-paren-mode 1)
    #+END_SRC
+** Font
+   #+BEGIN_SRC emacs-lisp
+     (add-to-list 'default-frame-alist
+		    '(font . "JetBrains Mono-14"))
+   #+END_SRC
 * Ido mode
   - for search completion 
   #+BEGIN_SRC emacs-lisp
@@ -219,6 +224,15 @@
        :config
        (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
    #+END_SRC
+** org deadlines
+   #+BEGIN_SRC emacs-lisp
+     (setq org-agenda-files (append
+			     (file-expand-wildcards "~/Org")))
+   #+END_SRC
+** org agenda
+   #+BEGIN_SRC emacs-lisp
+     (global-set-key (kbd "M-o") 'org-agenda)
+  #+END_SRC      
 * Switch Window the smarter way
   #+BEGIN_SRC emacs-lisp
     (use-package switch-window
@@ -314,14 +328,6 @@
       (add-hook 'c++-mode-hook 'company-mode)
       (add-hook 'c-mode-hook 'company-mode)) 
   #+END_SRC
-  
-
-
-
-  
-
-  
-
 * Media
 ** EMMS
    #+BEGIN_SRC emacs-lisp
