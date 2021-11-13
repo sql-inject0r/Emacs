@@ -388,3 +388,17 @@
 	(message "MPD Database Updated!"))
       (global-set-key (kbd "s-m u") 'mpd/update-database)
     #+END_SRC
+
+* Games
+** Tetris
+   - A simple shortcut for playing tetris in emacs !
+     #+BEGIN_SRC emacs-lisp
+       (global-set-key (kbd "M-t" 'tetris))
+     #+END_SRC
+
+* Misc
+** animated birthday -
+   - an animated birthday poem for the person !
+     #+BEGIN_SRC emacs-lisp
+       (global-set-key (kbd "M-b") 'animate-birthday-present)
+     #+END_SRC
