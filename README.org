@@ -1,4 +1,11 @@
 * My Minimal Emacs Config
-  -Note that the config.org and readme are the same !
+  -Note that the config.org and readme are the same
 
-* Learn about Org mode -
+* How to use my config -
+** its very simple just type the commands in your 
+   #+BEGIN_SRC sh
+     sudo rm -rf .emacs.d
+     git clone https://github.com/sql-inject0r/Emacs.git ~/.emacs.d
+   #+END_SRC
+   - NOTE: removing your .emacs.d directory will wipe all its content so backup
+     your own config otherwise it will be deleted !
