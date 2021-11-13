@@ -25,7 +25,7 @@
  '(custom-safe-themes
    '("da186cce19b5aed3f6a2316845583dbee76aea9255ea0da857d1c058ff003546" default))
  '(package-selected-packages
-   '(slime-company slime company-shell company-irony company-c-headers flycheck-clang-analyzer company-jedi treemacs swiper company switch-window org-bullets popup-kill-ring rainbow-delimiters rainbow-mode beacon hungry-delete fancy-battery dashboard projectile helm doom-modeline which-key doom-themes use-package)))
+   '(emms pdf-tools slime-company slime company-shell company-irony company-c-headers flycheck-clang-analyzer company-jedi treemacs swiper company switch-window org-bullets popup-kill-ring rainbow-delimiters rainbow-mode beacon hungry-delete fancy-battery dashboard projectile helm doom-modeline which-key doom-themes use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

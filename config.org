@@ -288,15 +288,97 @@
 		erc-auto-query 'bury)
 
   #+END_SRC
-* Bookmarks
-* Auto completion
+* Programming
   #+BEGIN_SRC emacs-lisp
     (use-package company
       :ensure t
-      :init
-      (add-hook 'after-init-hook 'global-company-mode))
+      :config
+      (setq company-idle-delay 0)
+      (setq company-minimum-prefix-length 2)
+      )
+
+    (use-package company-irony
+      :ensure t
+      :config
+      (require 'company)
+      (add-to-list 'company-backends 'company-irony))
+
+    (use-package irony
+      :ensure t
+      :config
+      (add-hook 'c++-mode-hook 'irony-mode)
+      (add-hook 'c-mode-hook 'irony-mode)
+      (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+
+    (with-eval-after-load 'company
+      (add-hook 'c++-mode-hook 'company-mode)
+      (add-hook 'c-mode-hook 'company-mode)) 
   #+END_SRC
   
 
 
 
+  
+
+  
+
+* Media
+** EMMS
+   #+BEGIN_SRC emacs-lisp
+     (use-package emms
+       :ensure t
+       :config
+	 (require 'emms-setup)
+	 (require 'emms-player-mpd)
+	 (emms-all) ; don't change this to values you see on stackoverflow questions if you expect emms to work
+	 (setq emms-seek-seconds 5)
+	 (setq emms-player-list '(emms-player-mpd))
+	 (setq emms-info-functions '(emms-info-mpd))
+	 (setq emms-player-mpd-server-name "localhost")
+	 (setq emms-player-mpd-server-port "6601")
+       :bind
+	 ("s-m p" . emms)
+	 ("s-m b" . emms-smart-browse)
+	 ("s-m r" . emms-player-mpd-update-all-reset-cache)
+	 ("<XF86AudioPrev>" . emms-previous)
+	 ("<XF86AudioNext>" . emms-next)
+	 ("<XF86AudioPlay>" . emms-pause)
+	 ("<XF86AudioStop>" . emms-stop))
+
+   #+END_SRC
+** Mpc setup
+   #+BEGIN_SRC emacs-lisp
+     (setq mpc-host "localhost:6601")
+   #+END_SRC
+** MPD bindings -
+*** Start The daemon
+    #+BEGIN_SRC emacs-lisp
+      (defun mpd/start-music-daemon ()
+	"Start MPD, connects to it and syncs the metadata cache."
+	(interactive)
+	(shell-command "mpd")
+	(mpd/update-database)
+	(emms-player-mpd-connect)
+	(emms-cache-set-from-mpd-all)
+	(message "MPD Started!"))
+      (global-set-key (kbd "s-m c") 'mpd/start-music-daemon)
+    #+END_SRC
+*** Killing the daemon
+    #+BEGIN_SRC emacs-lisp
+      (defun mpd/kill-music-daemon ()
+	"Stops playback and kill the music daemon."
+	(interactive)
+	(emms-stop)
+	(call-process "killall" nil nil nil "mpd")
+	(message "MPD Killed!"))
+      (global-set-key (kbd "s-m k") 'mpd/kill-music-daemon)
+    #+END_SRC
+*** Updating the daemon
+    #+BEGIN_SRC emacs-lisp
+      (defun mpd/update-database ()
+	"Updates the MPD database synchronously."
+	(interactive)
+	(call-process "mpc" nil nil nil "update")
+	(message "MPD Database Updated!"))
+      (global-set-key (kbd "s-m u") 'mpd/update-database)
+    #+END_SRC
