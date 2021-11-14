@@ -402,12 +402,17 @@
      #+BEGIN_SRC emacs-lisp
        (global-set-key (kbd "M-b") 'animate-birthday-present)
      #+END_SRC
+* Magit
+  - Magit is an amazing git client !
+    #+BEGIN_SRC emacs-lisp
+;; C-x g for status
+      (use-package magit
+	:ensure t)
+    #+END_SRC
+    
 
-
-
-* pdf
-#+BEGIN_SRC emacs-lisp
-  (use-package pdf-tools
-    :ensure t
-    (pdf-tools-install))
-#+END_SRC
+* fist commit using magit
+  #+BEGIN_SRC sh
+    echo this is my first commit using magit
+    figlet YAY :DDDDDDDDDDDDDD | lolcat
+  #+END_SRC
