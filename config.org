@@ -411,8 +411,5 @@
     #+END_SRC
     
 
-* fist commit using magit
-  #+BEGIN_SRC sh
-    echo this is my first commit using magit
-    figlet YAY :DDDDDDDDDDDDDD | lolcat
-  #+END_SRC
+* Hello
+  
