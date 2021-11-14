@@ -9,3 +9,8 @@
    #+END_SRC
    - NOTE: removing your .emacs.d directory will wipe all its content so backup
      your own config otherwise it will be deleted !
+* NOTE -
+  - I'm sad to announce till my boards are not clear I will not work on my Emacs config
+  - Just a couple of months and I will get through this
+  - I will be deleting my virtual machine as well
+  - Goodbye friend :(
