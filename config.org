@@ -402,3 +402,12 @@
      #+BEGIN_SRC emacs-lisp
        (global-set-key (kbd "M-b") 'animate-birthday-present)
      #+END_SRC
+
+
+
+* pdf
+#+BEGIN_SRC emacs-lisp
+  (use-package pdf-tools
+    :ensure t
+    (pdf-tools-install))
+#+END_SRC
